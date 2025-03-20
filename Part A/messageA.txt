@@ -1,0 +1,68 @@
+Congratulations!
+
+Seriously, many congrats! Even though this isn't computationally difficult,
+it's certainly at least a little outside our normal comfort zones, right?
+
+K. So now you have two things to do:
+1. You need to actually create your proof of having solved this task.
+2. You need to move on to the second half (part B).
+
+To create your proof of having solved *this* task, just use the same basic
+process you used to decrypt this message, to encrypt a new (specific) one:
+In a file, store your name, username, and student number. Encrypt this file
+with a key of 100 plus the last two digits of your student number.
+
+e.g. if your username was ef17ab, with a student number of 4575312, you'd have
+a file containing:
+Earlfred Foxton, ef17ab, 4575312
+
+and encrypt it with a key of 112.
+Name the file as: username.answer.A.enc
+So, in this case:
+ef17ab.answer.A.enc
+
+Yes, a bit much, I realize. But easier grading is quicker grading.
+
+Also include whatever code or script you made to generate this file,
+as well as to solve for the key, for verification (read: avoiding the
+need for "paperwork") purposes.
+
+Include your student number in a comment at the *top* of the script,
+so your marker doesn't need to go hunting around for it.
+
+
+Okay, then that just leaves us with the second part, right?
+This one's decidedly trickier, but if you solved this one, you should be
+fine with the next one as well.
+
+The second ASCII message has also been encrypted with a keystream, but the
+key isn't exactly 8 bits. Instead, it's 15 bits.
+How does that work? Easy!
+The key is effectively a number, not from 0 to 255, but from 0 to 32,767.
+Starting from the front of the key, it grabs 8 bits, and then the next 8 bits,
+and then the next 8 bits. How? By looping.
+That is, the first 8 bits are just like with this version. But the next 8
+take the remaining 7 bits, followed by the first bit of the key. The third
+key byte starts at the second bit of the key, etc.
+
+And, clearly, having a possible key space of only 128 times the size of this
+last version won't make it harder at all... right?
+
+Well, here's what I can say, for hints:
+1. It's an ASCII file.
+2. I won't tell you what line endings it uses.
+3. There is vastly more than enough material within the file to solve it.
+4. However you solve for the key, you'll still need to explicitly decrypt
+   the message, to get the submission instructions.
+5. Though the keystream generation is *slightly* more complicated, actually
+   solving it might be even easier than this last one.
+
+And, for the last hint, consider what you know. And I mean EVERYTHING you know.
+
+For example, though you might have found some clever alternative, it was my
+hope that you'd solve this last version by simply iterating over all 256
+possible keys, and seeing which one generated the most instances of byte
+values of 13, followed by 10 (corresponding to CR,LF).
+That won't help you this time, but what else do you know?
+
+You can do this.
